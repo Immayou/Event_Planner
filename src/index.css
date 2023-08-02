@@ -1,5 +1,7 @@
 :root {
   --accent-color: #7b61ff;
+  --placeholder-color: #888888;
+  --background-color: #fefcff;
   --high-priority-text-color: #ff2b77;
   --medium-priority-text-color: #e2a300;
   --law-priority-text-color: #6bd475;
@@ -166,7 +168,8 @@ table {
   border-spacing: 0;
 }
 
-button {
+button,
+input {
   outline: none;
   border: none;
   cursor: pointer;

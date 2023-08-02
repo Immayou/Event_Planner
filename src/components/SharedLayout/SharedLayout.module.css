@@ -13,15 +13,31 @@
 
 .header {
   padding: 32px 0 24px 0;
+  border-bottom: 1px solid var(--accent-color);
+  background-color: var(--background-color);
 }
 
 .input_search {
   width: 100%;
   padding: 12px;
   padding-left: 48px;
-  text-align: center;
+  font-family: 'Poppins';
+  font-size: 14px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: border-color var(--transition-duration) var(--timing-function);
+}
+
+.input_search:focus {
+  border-color: var(--accent-color);
 }
 
 .form {
   position: relative;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+::placeholder {
+  color: var(--placeholder-color);
 }

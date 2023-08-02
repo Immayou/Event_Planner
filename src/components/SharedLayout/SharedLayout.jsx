@@ -24,17 +24,19 @@ export const SharedLayout = () => {
 
   const onSubmit = async (data, e) => {
     e.preventDefault();
+    console.log(data.searchEvent);
     await window.sessionStorage.setItem(
       'searchQuery',
       JSON.stringify(data.searchEvent)
     );
     await setSearchParams({ search: data.searchEvent });
+    await reset();
   };
   return (
     <>
       <div className={s.mainWrapper}>
-        <Container>
-          <header className={s.header}>
+        <header className={s.header}>
+          <Container>
             <h2 className={s.caption}>Event Planner</h2>
 
             <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
@@ -56,17 +58,17 @@ export const SharedLayout = () => {
               <Button
                 type="submit"
                 btnClass="searchBtn"
-                text={<CiSearch size={30} />}
+                text={<CiSearch size={24} />}
                 // handleClick={handleClick}
               >
                 ggg
               </Button>
             </form>
-          </header>
-          <Suspense fallback={null}>
-            <Outlet />
-          </Suspense>
-        </Container>
+          </Container>
+        </header>
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
       </div>
     </>
   );
