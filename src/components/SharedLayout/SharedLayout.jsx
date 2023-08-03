@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { CiSearch } from 'react-icons/ci';
+import { VscClose } from 'react-icons/vsc';
 import { Outlet, useSearchParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
@@ -30,7 +31,10 @@ export const SharedLayout = () => {
       JSON.stringify(data.searchEvent)
     );
     await setSearchParams({ search: data.searchEvent });
-    await reset();
+  };
+
+  const handleClick = () => {
+    reset();
   };
   return (
     <>
@@ -38,7 +42,6 @@ export const SharedLayout = () => {
         <header className={s.header}>
           <Container>
             <h2 className={s.caption}>Event Planner</h2>
-
             <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
               <label className={s.label}>
                 <input
@@ -54,15 +57,20 @@ export const SharedLayout = () => {
                 textClass="errorMessageHeaderForm"
               />
             )} */}
-
+              {isDirty && (
+                <Button
+                  type="button"
+                  btnClass="closeBtn"
+                  text={<VscClose size={20} />}
+                  handleClick={handleClick}
+                />
+              )}
               <Button
                 type="submit"
                 btnClass="searchBtn"
                 text={<CiSearch size={24} />}
                 // handleClick={handleClick}
-              >
-                ggg
-              </Button>
+              />
             </form>
           </Container>
         </header>

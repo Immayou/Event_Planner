@@ -1,0 +1,115 @@
+.nav_icon {
+  stroke: #000000;
+  fill: #ffffff;
+  transition: stroke var(--transition-duration) var(--timing-function);
+}
+
+.nav_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 40px;
+}
+
+.nav_box {
+  padding: 16px;
+  background-color: var(--btn-main-color);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+}
+
+.nav_box:not(:last-child) {
+  margin-right: 24px;
+}
+
+.nav_box:hover .nav_icon {
+  stroke: var(--accent-color);
+}
+
+.card_wrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--btn-main-color);
+  box-shadow: var(--box-shadow);
+}
+
+.top_details_box {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+}
+
+.top_main_details {
+  padding: 6px 12px;
+  margin-right: 12px;
+  border-radius: 6px;
+  background-color: var(--btn-main-color);
+  color: var(--accent-color);
+  font-family: 'Poppins';
+  font-size: 14px;
+}
+
+.top_secondary_details {
+  padding: 6px 12px;
+  margin-right: 12px;
+  border-radius: 6px;
+  background-color: var(--btn-main-color);
+  color: var(--accent-color);
+  font-family: 'Poppins';
+  font-size: 14px;
+}
+
+.bottom_details_box {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Poppins';
+  font-size: 14px;
+  color: var(--accent-color);
+  background-color: rgba(240, 241, 244, 0.8);
+}
+
+.img_box {
+  position: relative;
+}
+
+.card_title {
+  margin-bottom: 16px;
+  font-family: 'Poppins';
+  font-size: 16px;
+  color: var(--title-text-color);
+}
+
+.card_text {
+  font-family: 'Poppins';
+  font-size: 14px;
+  color: var(--main-text-color);
+}
+
+.bottom_card_box {
+  padding: 16px;
+}
+
+.btn {
+  display: none;
+  padding: 12px 20px;
+  margin-top: 8px;
+  margin-left: auto;
+  text-align: center;
+  background-color: var(--accent-color);
+  color: var(--btn-main-color);
+  font-family: 'Poppins';
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+.card_wrapper:hover .btn {
+  display: block;
+}

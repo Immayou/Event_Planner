@@ -5,3 +5,11 @@
   transform: translateY(-50%);
   color: var(--accent-color);
 }
+
+.closeBtn {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  color: var(--accent-color);
+}

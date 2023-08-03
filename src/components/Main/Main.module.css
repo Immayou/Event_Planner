@@ -1,0 +1,8 @@
+.main {
+  flex-grow: 1;
+  padding-top: 42px;
+  background-image: url('../../images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
