@@ -4,6 +4,7 @@ import { BiArrowBack } from 'react-icons/bi';
 import { VscClose } from 'react-icons/vsc';
 import { NavLink, useLocation } from 'react-router-dom';
 import { priorities } from '../../data/priorities';
+import { categories } from '../../data/categories';
 import { Main } from 'components/Main/Main';
 import SelectField from 'components/SelectField/SelectField';
 import Button from 'components/Button/Button';
@@ -12,6 +13,8 @@ import s from './AddEvent.module.css';
 
 export const AddEvent = () => {
   const [filterSelected, setFilterSelected] = useState('');
+  const [selectCategoryClick, setSelectCategoryClick] = useState(false);
+  const [selectPriorityClick, setSelectPriorityClick] = useState(false);
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
   const {
@@ -35,7 +38,33 @@ export const AddEvent = () => {
     e.preventDefault();
     console.log(data);
   };
-
+  console.log(selectCategoryClick);
+  const handleSelectOpenClick = type => {
+    console.log(type);
+    switch (type) {
+      case 'Category':
+        setSelectCategoryClick(true);
+        break;
+      case 'Priority':
+        setSelectPriorityClick(true);
+        break;
+      default:
+        break;
+    }
+  };
+  const handleSelectCloseClick = type => {
+    console.log(type);
+    switch (type) {
+      case 'Category':
+        setSelectCategoryClick(false);
+        break;
+      case 'Priority':
+        setSelectPriorityClick(false);
+        break;
+      default:
+        break;
+    }
+  };
   return (
     <Main>
       <section>
@@ -116,7 +145,31 @@ export const AddEvent = () => {
                 )}
               </div>
             </div>
-            <div style={{ width: '100%' }}>
+            <div className={s.inputMainBox}>
+              <Controller
+                control={control}
+                name="categoryEvent"
+                render={({ field: { value } }) => (
+                  <SelectField
+                    value={value}
+                    label={'Category'}
+                    className={'priority'}
+                    isMenuOpen={selectCategoryClick}
+                    handleSelectOpenClick={handleSelectOpenClick}
+                    handleSelectCloseClick={handleSelectCloseClick}
+                    handleChange={value => handleChangeFilter(value.value)}
+                    options={categories}
+                    defaultValue={
+                      selectCategoryClick
+                        ? { label: 'Select Category', value: 0 }
+                        : { label: 'Select', value: 0 }
+                    }
+                    name="categoryEvent"
+                  />
+                )}
+              />
+            </div>
+            <div className={s.inputMainBox}>
               <Controller
                 control={control}
                 name="priorityEvent"
@@ -124,9 +177,17 @@ export const AddEvent = () => {
                   <SelectField
                     value={value}
                     className={'priority'}
+                    label={'Priority'}
+                    isMenuOpen={selectPriorityClick}
+                    handleSelectOpenClick={handleSelectOpenClick}
+                    handleSelectCloseClick={handleSelectCloseClick}
                     handleChange={value => handleChangeFilter(value.value)}
                     options={priorities}
-                    defaultValue={{ value: 'Low', label: 'Low' }}
+                    defaultValue={
+                      selectPriorityClick
+                        ? { label: 'Select Priority', value: 0 }
+                        : { label: 'Select', value: 0 }
+                    }
                     name="priorityEvent"
                   />
                 )}
@@ -134,7 +195,7 @@ export const AddEvent = () => {
             </div>
             <Button
               type="submit"
-              btnClass="searchBtn"
+              btnClass="btn"
               text="Add event"
               // handleClick={handleClick}
             />

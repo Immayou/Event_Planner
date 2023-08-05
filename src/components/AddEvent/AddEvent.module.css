@@ -50,6 +50,8 @@
   border: 1px solid var(--btn-disabled-color);
   border-radius: 8px;
   color: var(--title-text-color);
+  font-family: 'Poppins';
+  font-size: 16px;
 }
 
 .textarea {
@@ -59,4 +61,11 @@
   border-radius: 8px;
   color: var(--title-text-color);
   resize: vertical;
+}
+
+.input:hover,
+.input:focus,
+.textarea:hover,
+.textarea:focus {
+  border-color: var(--accent-color);
 }

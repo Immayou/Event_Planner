@@ -1,3 +1,16 @@
+.btn {
+  width: 100%;
+  padding: 16px 0px;
+  margin-top: 8px;
+  margin-left: auto;
+  text-align: center;
+  background-color: var(--accent-color);
+  color: var(--btn-main-color);
+  font-family: 'Poppins';
+  font-size: 16px;
+  border-radius: 6px;
+}
+
 .searchBtn {
   position: absolute;
   top: 50%;
