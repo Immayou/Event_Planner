@@ -13,3 +13,18 @@
   transform: translateY(-50%);
   color: var(--accent-color);
 }
+
+.reset_btn {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  color: var(--accent-color);
+}
+
+.reset_textarea_btn {
+  position: absolute;
+  top: 16px;
+  right: 12px;
+  color: var(--accent-color);
+}

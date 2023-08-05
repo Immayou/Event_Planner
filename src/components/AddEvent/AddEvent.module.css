@@ -25,3 +25,38 @@
   border-radius: 8px;
   box-shadow: var(--box-shadow);
 }
+
+.inputMainBox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.inputBox {
+  position: relative;
+  width: 100%;
+}
+
+.label {
+  margin-bottom: 8px;
+  color: var(--accent-color);
+  font-family: 'Poppins';
+  font-size: 16px;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 0 16px 12px;
+  border: 1px solid var(--btn-disabled-color);
+  border-radius: 8px;
+  color: var(--title-text-color);
+}
+
+.textarea {
+  width: 100%;
+  padding: 16px 0 16px 12px;
+  border: 1px solid var(--btn-disabled-color);
+  border-radius: 8px;
+  color: var(--title-text-color);
+  resize: vertical;
+}

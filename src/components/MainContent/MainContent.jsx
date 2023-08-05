@@ -26,7 +26,7 @@ export const MainContent = () => {
         <section>
           <div className={s.card_wrapper}>
             <div className={s.img_box}>
-              <img src={SrcUrl} alt="Event" height="336px" />
+              <img src={SrcUrl} alt="Event" />
               <div className={s.top_details_box}>
                 <p className={s.top_main_details}>Art</p>
                 <p className={s.top_secondary_details}>High</p>
