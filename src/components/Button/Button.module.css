@@ -9,6 +9,17 @@
   font-family: 'Poppins';
   font-size: 16px;
   border-radius: 6px;
+  transition: background-color var(--transition-duration) var(--timing-function),
+    transform var(--transition-duration) var(--timing-function);
+}
+
+.btn:disabled {
+  background-color: var(--btn-disabled-color);
+}
+
+.btn:hover {
+  background-color: var(--hover-btn-color);
+  transform: translate(5px, 5px);
 }
 
 .searchBtn {

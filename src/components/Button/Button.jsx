@@ -5,9 +5,15 @@ const Button = ({
   type = 'submit',
   btnClass = 'btnDark',
   handleClick,
+  disabled = false,
 }) => {
   return (
-    <button className={s[btnClass]} onClick={handleClick} type={type}>
+    <button
+      className={s[btnClass]}
+      onClick={handleClick}
+      type={type}
+      disabled={disabled}
+    >
       {text}
     </button>
   );

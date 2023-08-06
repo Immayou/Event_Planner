@@ -16,7 +16,6 @@ const SelectField = forwardRef(
       isMenuOpen,
       handleSelectOpenClick,
       handleSelectCloseClick,
-      defaultValue,
     },
     ref
   ) => {
@@ -24,14 +23,11 @@ const SelectField = forwardRef(
     const selectClass = className
       ? `${s.select} ${s[className]}`
       : `${s.select}`;
-    console.log(ref);
+    const spanClass = !isMenuOpen ? `${s.label_span}` : `${s.span}`;
     return (
       <label className={labelClass}>
-        <span className={s.label_span}>{label}</span>
+        <span className={spanClass}>{label}</span>
         <Select
-          // menuIsOpen={true}
-          // onFocus={true}
-          // defaultInputValue="Search Text"
           onMenuOpen={() => handleSelectOpenClick(label)}
           onMenuClose={() => handleSelectCloseClick(label)}
           openMenuOnClick={true}
@@ -40,7 +36,6 @@ const SelectField = forwardRef(
           name={name}
           value={value}
           onChange={handleChange}
-          // defaultValue={defaultValue}
           placeholder={isMenuOpen ? `${'Select'} ${label}` : 'Select'}
           required={required}
           options={options.map(option => ({ value: option, label: option }))}

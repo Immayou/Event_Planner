@@ -15,13 +15,14 @@ export const AddEvent = () => {
   const [filterSelected, setFilterSelected] = useState('');
   const [selectCategoryClick, setSelectCategoryClick] = useState(false);
   const [selectPriorityClick, setSelectPriorityClick] = useState(false);
+  const [selectDateClick, setSelectDateClick] = useState(false);
+  const [selectTimeClick, setSelectTimeClick] = useState(false);
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
   const {
     control,
     register,
     handleSubmit,
-    reset,
     resetField,
     formState: { errors, dirtyFields, isSubmitting },
   } = useForm({
@@ -48,6 +49,12 @@ export const AddEvent = () => {
       case 'Priority':
         setSelectPriorityClick(true);
         break;
+      case 'Date':
+        setSelectDateClick(true);
+        break;
+      case 'Time':
+        setSelectTimeClick(true);
+        break;
       default:
         break;
     }
@@ -60,6 +67,12 @@ export const AddEvent = () => {
         break;
       case 'Priority':
         setSelectPriorityClick(false);
+        break;
+      case 'Date':
+        setSelectDateClick(false);
+        break;
+      case 'Time':
+        setSelectTimeClick(false);
         break;
       default:
         break;
@@ -121,7 +134,52 @@ export const AddEvent = () => {
                 )}
               </div>
             </div>
-
+            <div className={s.inputMainBox}>
+              <iframe
+                src="https://calendar.google.com/calendar/embed?src=r06mk22bik8he4ooem1kr1bju88s01d4%40import.calendar.google.com&ctz=Europe%2FKiev"
+                // style="border: 0"
+                width="800"
+                height="600"
+                frameBorder="0"
+                scrolling="no"
+              ></iframe>
+              {/* <Controller
+                control={control}
+                name="dateEvent"
+                render={({ field: { value } }) => (
+                  <SelectField
+                    value={value}
+                    className={'priority'}
+                    label={'Date'}
+                    isMenuOpen={selectDateClick}
+                    handleSelectOpenClick={handleSelectOpenClick}
+                    handleSelectCloseClick={handleSelectCloseClick}
+                    handleChange={value => handleChangeFilter(value.value)}
+                    options={priorities}
+                    name="dateEvent"
+                  />
+                )}
+              /> */}
+            </div>
+            <div className={s.inputMainBox}>
+              <Controller
+                control={control}
+                name="timeEvent"
+                render={({ field: { value } }) => (
+                  <SelectField
+                    value={value}
+                    className={'priority'}
+                    label={'Time'}
+                    isMenuOpen={selectTimeClick}
+                    handleSelectOpenClick={handleSelectOpenClick}
+                    handleSelectCloseClick={handleSelectCloseClick}
+                    handleChange={value => handleChangeFilter(value.value)}
+                    options={priorities}
+                    name="timeEvent"
+                  />
+                )}
+              />
+            </div>
             <div className={s.inputMainBox}>
               <label htmlFor="titleEvent" className={s.label}>
                 Location
@@ -159,11 +217,6 @@ export const AddEvent = () => {
                     handleSelectCloseClick={handleSelectCloseClick}
                     handleChange={value => handleChangeFilter(value.value)}
                     options={categories}
-                    defaultValue={
-                      selectCategoryClick
-                        ? { label: 'Select Category', value: 0 }
-                        : { label: 'Select', value: 0 }
-                    }
                     name="categoryEvent"
                   />
                 )}
@@ -183,11 +236,6 @@ export const AddEvent = () => {
                     handleSelectCloseClick={handleSelectCloseClick}
                     handleChange={value => handleChangeFilter(value.value)}
                     options={priorities}
-                    defaultValue={
-                      selectPriorityClick
-                        ? { label: 'Select Priority', value: 0 }
-                        : { label: 'Select', value: 0 }
-                    }
                     name="priorityEvent"
                   />
                 )}
@@ -197,6 +245,7 @@ export const AddEvent = () => {
               type="submit"
               btnClass="btn"
               text="Add event"
+              disabled={isSubmitting}
               // handleClick={handleClick}
             />
           </form>
