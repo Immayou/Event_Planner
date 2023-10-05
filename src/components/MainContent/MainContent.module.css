@@ -28,6 +28,9 @@
 }
 
 .card_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 480px;
   position: relative;
   border-radius: 8px;
   overflow: hidden;
@@ -79,6 +82,7 @@
 
 .img_box {
   position: relative;
+  flex-shrink: 2;
 }
 
 .card_title {
@@ -91,18 +95,25 @@
 .card_text {
   font-family: 'Poppins';
   font-size: 14px;
+  line-height: 1.32;
   color: var(--main-text-color);
 }
 
 .bottom_card_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 144px;
   padding: 16px;
 }
 
 .btn {
   display: none;
-  padding: 12px 20px;
+  /* padding: 12px 20px; */
   margin-top: 8px;
   margin-left: auto;
+  min-width: 114px;
+  height: 40px;
   text-align: center;
   background-color: var(--accent-color);
   color: var(--btn-main-color);
@@ -114,4 +125,12 @@
 
 .card_wrapper:hover .btn {
   display: block;
+  /* height: 208px; */
+}
+
+.card_wrapper:hover .bottom_card_box {
+  flex-basis: 208px;
+  /* flex-shrink: 0; */
+  /* display: block; */
+  /* height: 208px; */
 }

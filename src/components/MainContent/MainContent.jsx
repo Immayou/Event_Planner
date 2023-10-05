@@ -26,7 +26,7 @@ export const MainContent = () => {
         <section>
           <div className={s.card_wrapper}>
             <div className={s.img_box}>
-              <img src={SrcUrl} alt="Event" />
+              <img src={SrcUrl} alt="Event" width="100%" height="336px" />
               <div className={s.top_details_box}>
                 <p className={s.top_main_details}>Art</p>
                 <p className={s.top_secondary_details}>High</p>
@@ -38,7 +38,10 @@ export const MainContent = () => {
             </div>
             <div className={s.bottom_card_box}>
               <h2 className={s.card_title}>Event Name</h2>
-              <p className={s.card_text}>Description</p>
+              <p className={s.card_text}>
+                Description vnfvnfjnvjfvnjfn nvfvfbvjfbvjfbv nvbfjvbjfbvjfvb
+                nvbfjvbjfbvjfvb vjfbvjfbvjfbvjfb vbjbvjfvb
+              </p>
               <button type="button" className={s.btn}>
                 More info
               </button>
