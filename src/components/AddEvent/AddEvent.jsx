@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { BiArrowBack } from 'react-icons/bi';
 import { VscClose } from 'react-icons/vsc';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 import { NavLink, useLocation } from 'react-router-dom';
 import { priorities } from '../../data/priorities';
 import { categories } from '../../data/categories';
@@ -17,6 +19,7 @@ export const AddEvent = () => {
   const [selectPriorityClick, setSelectPriorityClick] = useState(false);
   const [selectDateClick, setSelectDateClick] = useState(false);
   const [selectTimeClick, setSelectTimeClick] = useState(false);
+  const [value, onChange] = useState(new Date());
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
   const {
@@ -135,7 +138,7 @@ export const AddEvent = () => {
               </div>
             </div>
             <div className={s.inputMainBox}>
-              <Controller
+              {/* <Controller
                 control={control}
                 name="dateEvent"
                 render={({ field: { value } }) => (
@@ -151,7 +154,8 @@ export const AddEvent = () => {
                     name="dateEvent"
                   />
                 )}
-              />
+              /> */}
+              <Calendar onChange={onChange} showWeekNumbers value={value} />
             </div>
             <div className={s.inputMainBox}>
               <Controller
