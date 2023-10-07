@@ -2,10 +2,10 @@ import { NavLink } from 'react-router-dom';
 import { ReactComponent as SvgIconCategory } from '../../images/svg/category.svg';
 import { ReactComponent as SvgIconSort } from '../../images/svg/sort.svg';
 import { ReactComponent as SvgIconPlus } from '../../images/svg/plus.svg';
-import SrcUrl from '../../images/img-1.jpg';
 import Container from 'components/Container/Container';
 import s from './MainContent.module.css';
 import { Main } from 'components/Main/Main';
+import CardItem from 'components/CardItem/CardItem';
 
 export const MainContent = () => {
   return (
@@ -24,29 +24,7 @@ export const MainContent = () => {
         </section>
 
         <section>
-          <div className={s.card_wrapper}>
-            <div className={s.img_box}>
-              <img src={SrcUrl} alt="Event" width="100%" height="336px" />
-              <div className={s.top_details_box}>
-                <p className={s.top_main_details}>Art</p>
-                <p className={s.top_secondary_details}>High</p>
-              </div>
-              <div className={s.bottom_details_box}>
-                <p>Time</p>
-                <p>City</p>
-              </div>
-            </div>
-            <div className={s.bottom_card_box}>
-              <h2 className={s.card_title}>Event Name</h2>
-              <p className={s.card_text}>
-                Description vnfvnfjnvjfvnjfn nvfvfbvjfbvjfbv nvbfjvbjfbvjfvb
-                nvbfjvbjfbvjfvb vjfbvjfbvjfbvjfb vbjbvjfvb
-              </p>
-              <button type="button" className={s.btn}>
-                More info
-              </button>
-            </div>
-          </div>
+          <CardItem />
         </section>
       </Container>
     </Main>

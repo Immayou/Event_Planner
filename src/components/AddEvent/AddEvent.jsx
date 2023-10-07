@@ -135,15 +135,7 @@ export const AddEvent = () => {
               </div>
             </div>
             <div className={s.inputMainBox}>
-              <iframe
-                src="https://calendar.google.com/calendar/embed?src=r06mk22bik8he4ooem1kr1bju88s01d4%40import.calendar.google.com&ctz=Europe%2FKiev"
-                // style="border: 0"
-                width="800"
-                height="600"
-                frameBorder="0"
-                scrolling="no"
-              ></iframe>
-              {/* <Controller
+              <Controller
                 control={control}
                 name="dateEvent"
                 render={({ field: { value } }) => (
@@ -159,7 +151,7 @@ export const AddEvent = () => {
                     name="dateEvent"
                   />
                 )}
-              /> */}
+              />
             </div>
             <div className={s.inputMainBox}>
               <Controller
